@@ -66,8 +66,10 @@ def get_stats(request):
 
 def see_stats(request,message_id):
     message = get_object_or_404(Message,pk = message_id)
-    info_obj = MandrillInfo.objects.get(message = message)
-    json_res = info_obj.json
+    info_obj = MandrillInfo.objects.filter(message = message)
+    json_res = []
+    for x in info_obj:
+        json_res.append(x.json)
 
     return render(request,'send/see_stats.html',{'json':json_res})
     
