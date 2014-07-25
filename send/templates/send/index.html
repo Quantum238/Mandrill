@@ -1,0 +1,9 @@
+{% if message_list %}
+	<ul>
+	{% for message in message_list %}
+		<li><a href="{% url 'send:detail' message.id %}">{{message.text}}</a></li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p> No Messages </p>
+{% endif %}

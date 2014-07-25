@@ -1,0 +1,5 @@
+{{message.id}}<br>{{message.text}}
+<br>
+<a href = "{% url 'send:confirmation' message.id %}">Send Message?</a>
+<br>
+<a href = "{% url 'send:see_stats' message.id %}">See Mandrills Information?</a>
